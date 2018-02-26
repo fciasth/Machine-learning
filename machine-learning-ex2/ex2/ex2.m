@@ -136,13 +136,13 @@ pause;
 %  Predict probability for a student with score 45 on exam 1 
 %  and score 85 on exam 2 
 
-prob = sigmoid([1 45 85] * theta);
+prob = sigmoid([1 45 85] * theta);%这是一组测试数据，第一次考试成绩为45，第二次成绩为85
 fprintf(['For a student with scores 45 and 85, we predict an admission ' ...
          'probability of %f\n'], prob);
 fprintf('Expected value: 0.775 +/- 0.002\n\n');
 
 % Compute accuracy on our training set
-p = predict(theta, X);
+p = predict(theta, X);% 调用predict函数测试模型
 
 fprintf('Train Accuracy: %f\n', mean(double(p == y)) * 100);
 fprintf('Expected accuracy (approx): 89.0\n');

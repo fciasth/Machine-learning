@@ -16,7 +16,7 @@ p = zeros(m, 1);
 %
 
 
-
+p = X*theta >= 0;
 
 
 

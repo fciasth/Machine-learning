@@ -3,13 +3,18 @@ function [h, display_array] = displayData(X, example_width)
 %   [h, display_array] = DISPLAYDATA(X, example_width) displays 2D data
 %   stored in X in a nice grid. It returns the figure handle h and the 
 %   displayed array if requested.
-
+% DISPLAYDATA在一个漂亮的网格中显示2D数据
+%    [h，display_array] = DISPLAYDATA（X，example_width）显示二维数据
+%   存储在X中一个不错的网格。 它返回数字句柄h和
+%    如果请求显示数组。
 % Set example_width automatically if not passed in
+% 如果未传入，则自动设置example_width
 if ~exist('example_width', 'var') || isempty(example_width) 
 	example_width = round(sqrt(size(X, 2)));
 end
-
+%灰色图像
 % Gray Image
+% colormap是MATLAB里面用来设定和获取当前色图的函数。
 colormap(gray);
 
 % Compute rows, cols

@@ -48,11 +48,44 @@ X = [ones(m, 1) X];
 %         fmincg (@(t)(lrCostFunction(t, X, (y == c), lambda)), ...
 %                 initial_theta, options);
 %
+% ％指令：您应该完成以下代码来训练num_labels
+% 具有正则化的逻辑回归分类器
+% ％参数lambda。
+% ％
+% ％提示：theta（:)将返回一个列向量。
+% ％
+% ％提示：您可以使用y == c来获取告诉你的向量1和0
+% ％这个class的基础真实是真/假。
+% ％
+% ％注意：对于此作业，我们建议使用fmincg来优化成本
+% ％函数。可以使用for循环（对于c = 1：num_labels）来执行
+% 循环遍历不同的类。
+% ％
+% ％fmincg的作用与fminunc相似，但是当我们更有效时
+% ％正在处理大量的参数。
+% ％
+% ％fmincg的示例代码：
+% ％
+% ％％设定初始θ值
+% ％initial_theta =零（n + 1，1）;
+% ％
+% ％％设置fminunc的选项
+% ％options = optimset（'GradObj'，'on'，'MaxIter'，50）;
+% ％
+% ％％运行fmincg以获得最佳θ值
+% ％％此函数将返回theta和成本
+% ％θ= ...
+% ％fmincg（@（t）（lrCostFunction（t，X，（y == c），lambda））...
+% ％initial_theta，options）;
 
 
+initial_theta = zeros(n + 1, 1);
 
+options = optimset('GradObj','on','MaxIter',50);
 
-
+for c = 1:num_labels %num_labels 为逻辑回归训练器的个数，num of logistic regression classifiers
+all_theta(c, :) = fmincg(@(t)(lrCostFunction(t, X, (y == c),lambda)), initial_theta,options );
+end
 
 
 
